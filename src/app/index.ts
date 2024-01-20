@@ -2,6 +2,7 @@ import express from "express";
 import bodyParser from "body-parser";
 import { ApolloServer } from "@apollo/server";
 import { expressMiddleware } from "@apollo/server/express4";
+import { prismaClient } from "../clients/db";
 
 
 export async function initServer() {
@@ -9,7 +10,13 @@ export async function initServer() {
 
   app.use(bodyParser.json());
   
-
+  //check Done Successfully
+  // prismaClient.user.create({
+  //   data: {
+      
+  //   }
+  // })
+  
   app.get("/", (req, res) =>
     res.status(200).json({ message: "Everything is good" })
   );
